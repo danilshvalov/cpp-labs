@@ -1,0 +1,10 @@
+BasedOnStyle: google
+DerivePointerAlignment: false
+IncludeBlocks: Preserve
+AlignAfterOpenBracket: BlockIndent
+BinPackArguments: false
+BinPackParameters: false
+IndentWidth: 4
+LambdaBodyIndentation: OuterScope
+BraceWrapping:
+  BeforeLambdaBody: false
