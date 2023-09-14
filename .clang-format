@@ -1,4 +1,6 @@
 BasedOnStyle: google
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Empty
 DerivePointerAlignment: false
 IncludeBlocks: Preserve
 AlignAfterOpenBracket: BlockIndent
