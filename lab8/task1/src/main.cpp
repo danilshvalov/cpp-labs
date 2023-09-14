@@ -16,6 +16,8 @@ const int kHoursInDay = 24;
 /// @brief Количество секунд в дне
 const int kSecondsInDay = kSecondsInHour * kHoursInDay;
 
+/// @class Time
+/// @brief Класс, представляющий время в формате часы, минуты, секунды
 class Time {
    public:
     int hours;
