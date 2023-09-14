@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+/// @class Point
+/// @brief Точка, задаваемая координатами двумя декартовыми координатами
 struct Point {
     double x;
     double y;
