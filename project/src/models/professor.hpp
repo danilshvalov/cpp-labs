@@ -1,0 +1,44 @@
+#pragma once
+
+#include "models/person.hpp"
+
+#include <nlohmann/json.hpp>
+
+#include <string>
+
+class Professor : public Person {
+   public:
+    explicit Professor(
+        Id id, std::string first_name, std::string last_name, Money salary
+    );
+
+    PersonType GetType() const override;
+
+    nlohmann::json ToJson() const override;
+
+    Money GetSalary() const;
+
+    void SetSalary(Money salary);
+
+   private:
+    Money salary_;
+};
+
+namespace nlohmann {
+template <>
+struct adl_serializer<Professor> {
+    static Professor from_json(const json& data) {
+        return Professor{
+            data.at("id").get<Person::Id>(),
+            data.at("first_name").get<std::string>(),
+            data.at("last_name").get<std::string>(),
+            data.at("salary").get<Money>(),
+        };
+    }
+
+    static void to_json(json& data, const Professor& s) {
+        data = static_cast<const Person&>(s);
+        data["salary"] = s.GetSalary();
+    }
+};
+}  // namespace nlohmann
